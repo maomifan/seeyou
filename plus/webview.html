@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript">
+var floatw=null;
+function floatWebview(){
+	if(floatw){ // 避免快速多次点击创建多个窗口
+		return;
+	}
+	floatw=plus.webview.create("webview_float.html","webview_float.html",{width:'200px',height:'200px',margin:"auto",background:"rgba(0,0,0,0.8)",scrollIndicator:'none',scalable:false});
+	floatw.addEventListener("loaded",function(){
+		floatw.show('zoom-out',300);
+		floatw=null;
+	},false);
+}
+		</script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body>
+		<header>
+			<div class="nvbt iback" onclick="back();"></div>
+			<div class="nvtt">webview</div>
+			<div class="nvbt idoc" onclick="clicked('../doc/webview.html',true);"></div>
+		</header>
+		<div id="dcontent" class="dcontent">
+			<br/>
+			<div class="button" onclick="clicked('webview_animation.html');">窗口动画</div>
+			<div class="button" onclick="clicked('webview_embed.html',true);">窗口嵌套</div>
+			<div class="button" onclick="floatWebview();">悬浮窗口</div>
+			<div class="button" onclick="clicked('webview_pullhead.html',true,true);">下拉刷新(Android)</div>
+			<div class="button" onclick="clicked('webview_pullhead_custom.html',true,true);">自定义下拉刷新(Android)</div>
+			<br/>
+		</div>
+		<div id="output">
+Webview模块管理应用窗口界面，实现多窗口的逻辑控制管理操作。
+		</div>
+	</body>
+</html>

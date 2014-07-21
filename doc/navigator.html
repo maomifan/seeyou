@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="320">
+<title>Hello H5+</title>
+<link rel="stylesheet" type="text/css" href="res/doc.css" charset="utf-8">
+<link rel="stylesheet" type="text/css" href="res/prettify.sons.css" charset="utf-8">
+<script type="text/javascript" src="res/doc.js" charset="utf-8"></script><script type="text/javascript" src="res/prettify.js" charset="utf-8"></script>
+</head>
+<body>
+<header><div class="nvbt iback" onclick="back();"></div>
+<div class="nvtt">Navigator Document</div></header><div id="content" class="content">
+<h1><a name="plus.navigator">navigator</a></h1>
+<p>navigator用于管理浏览器运行环境信息</p>
+<h2>方法：</h2>
+<ul>
+<li>
+<a href="#plus.navigator.closeSplashscreen">closeSplashscreen</a>: 关闭程序启动界面</li>
+<li>
+<a href="#plus.navigator.isFullscreen">isFullscreen</a>: 判断应用当前是否全屏模式显示</li>
+<li>
+<a href="#plus.navigator.setFullscreen">setFullscreen</a>: 设置应用是否全屏显示</li>
+</ul>
+<h1><a name="plus.navigator.closeSplashscreen">closeSplashscreen</a></h1>
+<p>关闭程序启动界面</p>
+<pre class="prettyprint linenums">
+void plus.navigator.closeSplashscreen();
+				</pre>
+<h2>说明：</h2>
+<p class="des">
+	很多情况下，程序启动后需要一段时间加载数据，为了避免界面显示空白内容，提高用户体验效果，这时可显示启动界面。
+	等数据加载完成后再关闭启动界面进入应用，通常可在应用首界面加载数据完成并更新显示内容后调用此方法。
+				</p>
+<h2>参数：</h2>
+<p>无</p>
+<h2>返回值：</h2>
+<a href="#void">void</a>
+			: 无<h2>示例：</h2>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+	&lt;meta charset="utf-8"&gt;
+	&lt;title&gt;navigator Example&lt;/title&gt;
+	&lt;script type="text/javascript"&gt;
+// H5 plus事件处理
+function plusReady(){
+	// 关闭程序启动界面
+	plus.navigator.closeSplashscreen();
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+	&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	关闭程序启动界面
+	&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+<h1><a name="plus.navigator.isFullscreen">isFullscreen</a></h1>
+<p>判断应用当前是否全屏模式显示</p>
+<pre class="prettyprint linenums">
+Boolean plus.navigator.isFullscreen();
+				</pre>
+<h2>参数：</h2>
+<p>无</p>
+<h2>返回值：</h2>
+<a href="#Boolean">Boolean</a>
+			: 应用全屏模式显示时返回true，否则返回false。<h2>示例：</h2>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;navigator Example&lt;/title&gt;
+		&lt;script type="text/javascript"&gt;
+// H5 plus事件处理
+function plusReady(){
+	// 是否全屏显示
+	console.log( plus.navigator.isFullscreen()?"Fullscreen!":"Not fullscreen!" );
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	判断应用当前是否全屏模式显示
+	&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+<h1><a name="plus.navigator.setFullscreen">setFullscreen</a></h1>
+<p>设置应用是否全屏显示</p>
+<pre class="prettyprint linenums">
+void plus.navigator.setFullscreen( fullscreen );
+				</pre>
+<h2>说明：</h2>
+<p class="des">
+	设置应用在全屏模式显示时，将隐藏系统状态栏，通常游戏类应用才会设置为全屏模式显示。
+				</p>
+<h2>参数：</h2>
+<ul><li>fullscreen: 
+		<em>(
+			<a href="#Boolean">Boolean</a>
+			)
+			必选 </em>是否全屏模式显示<br>
+	true表示全屏模式显示，false表示非全屏模式显示，默认为非全屏模式显示。
+						</li></ul>
+<h2>返回值：</h2>
+<a href="#void">void</a>
+			: 无<h2>示例：</h2>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;navigator Example&lt;/title&gt;
+		&lt;script type="text/javascript"&gt;
+// H5 plus事件处理
+function plusReady(){
+	// 全屏显示
+	plus.navigator.setFullscreen( true );
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+		&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	应用全屏模式显示
+	&lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+</div>
+</body>
+</html>
