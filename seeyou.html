@@ -9,17 +9,50 @@
 
     <link rel="stylesheet" href="css/Jingle.css">
     <link rel="stylesheet" href="css/app.css">
-	<!--<script type="text/javascript" src="js/lib/cordova.js"></script>-->
-	<!-- lib -->
-	<script type="text/javascript" src="js/lib/zepto.js"></script>
-	<script type="text/javascript" src="js/lib/iscroll.js"></script>
-	<script type="text/javascript" src="js/lib/template.min.js"></script>
-	<script type="text/javascript" src="js/lib/Jingle.debug.js"></script>
-	<script type="text/javascript" src="js/lib/zepto.touch2mouse.js"></script>
-	<script type="text/javascript" src="js/lib/JChart.debug.js"></script>
-	<!--- app --->
-	<script type="text/javascript" src="js/app/app.js"></script>
-	<!--<script src="http://192.168.2.153:8080/target/target-script-min.js#anonymous"></script>-->
+		<script type="text/javascript" src="../js/common.js"></script>
+    	<script type="text/javascript">
+
+var url="http://www.baidu.com/";
+var xhr=null;
+
+function xhrCreate() {
+	if ( xhr ) {
+		alert( "xhr请求已创建" );
+		return;
+	}
+	alert( "创建请求：" );
+	xhr = new plus.net.XMLHttpRequest();
+	xhr.onreadystatechange = function () {
+        switch ( xhr.readyState ) {
+            case 0:
+            	alert( "xhr请求已初始化" );
+            break;
+            case 1:
+            	alert( "xhr请求已打开" );
+            break;
+            case 2:
+            	alert( "xhr请求已发送" );
+            break;
+            case 3:
+                alert( "xhr请求已响应");
+                break;
+            case 4:
+                alert( "xhr请求已完成");
+                if ( xhr.status == 200 ) {
+                	alert( "xhr请求成功："+xhr.responseText );
+                	window.open("about.html");
+                } else {
+                	alert( "xhr请求失败："+xhr.status );
+                }
+                break;
+            default :
+                break;
+        }
+	}
+	xhr.open( "GET", url );
+	xhr.send();
+}
+</script>
 </head>
 <body>
 
@@ -32,7 +65,18 @@
         <div style="text-align:center;font-size:20px;color:#3498DB;font-weight:600;margin:5px 0;">登录</div>
         <input type="text" name="name" placeholder="用户名">
         <input type="password" name="password" placeholder="密码">
-        <button class="block" data-icon="checkmark" data-target="closePopup">登录</button>
+        <button class="block" data-icon="checkmark" data-target="" onclick="xhrCreate();">登录/注册</button>
     </div>
+	<!--<script type="text/javascript" src="js/lib/cordova.js"></script>-->
+	<!-- lib -->
+	<script type="text/javascript" src="js/lib/zepto.js"></script>
+	<script type="text/javascript" src="js/lib/iscroll.js"></script>
+	<script type="text/javascript" src="js/lib/template.min.js"></script>
+	<script type="text/javascript" src="js/lib/Jingle.debug.js"></script>
+	<script type="text/javascript" src="js/lib/zepto.touch2mouse.js"></script>
+	<script type="text/javascript" src="js/lib/JChart.debug.js"></script>
+	<!--- app --->
+	<script type="text/javascript" src="js/app/app.js"></script>
+	<!--<script src="http://192.168.2.153:8080/target/target-script-min.js#anonymous"></script>-->
 </body>
 </html>
